@@ -1,34 +1,19 @@
 pipeline {
+    agent any
     stages {
-        stage("Build") {
+        stage('Build') {
             steps {
-                echo "Build"
+                echo 'Building..'
             }
         }
-        stage("Test") {
+        stage('Test') {
             steps {
-                echo "Test"
+                echo 'Testing..'
             }
         }
-        stage("Scan") {
+        stage('Deploy') {
             steps {
-                echo "Scan"
-            }
-        }
-        stage("Deploy") {
-            when {
-                branch "main"
-            }
-            steps {
-                echo "Deploy
-            }
-        }
-        stage("Release") {
-            when {
-                buildingTag()
-            }
-            steps {
-                echo "Archive"
+                echo 'Deploying....'
             }
         }
     }
